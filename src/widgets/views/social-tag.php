@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
-use lispa\amos\seo\AmosSeo;
-use lispa\amos\core\helpers\Html;
-use lispa\amos\attachments\components\AttachmentsInput;
+use open20\amos\seo\AmosSeo;
+use open20\amos\core\helpers\Html;
+use open20\amos\attachments\components\AttachmentsInput;
 
 //print 'getOgTitle: '.$contentModel->getOgTitle().'.<br />';
 //print 'getOgDescription: '.$contentModel->getOgDescription().'.<br />';

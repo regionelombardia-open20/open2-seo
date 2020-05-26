@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
 return [
@@ -27,8 +27,8 @@ return [
             'noimageindex'
         ],
         'modulesEnabled' => [// TODO da capire se possiamo recuperarli in altra maniera
-            'lispa\amos\news\AmosNews',
-            'lispa\amos\discussioni\AmosDiscussioni',
+            'open20\amos\news\AmosNews',
+            'open20\amos\discussioni\AmosDiscussioni',
         ],
     ],
     'params' => [

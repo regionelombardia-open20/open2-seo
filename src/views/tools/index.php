@@ -1,9 +1,18 @@
 <?php
 
+/**
+ * Aria S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    Open20Package
+ * @category   CategoryName
+ */
+
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = \lispa\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancanti');
+$this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancanti');
 ?>
 <div class="default-index">
     <div class="row">

@@ -2,14 +2,14 @@
 
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
-use lispa\amos\seo\assets\SeoAsset;
+use open20\amos\seo\assets\SeoAsset;
 
 
 //SeoAsset::register($this);
@@ -23,19 +23,19 @@ use lispa\amos\seo\assets\SeoAsset;
     $moduleSeo  = \Yii::$app->getModule('seo');
     if (isset($moduleSeo) && $moduleSeo->behaviors) {
         //print 'seo-data: Hello world!';exit;
-        echo lispa\amos\seo\widgets\MetaWidget::widget([
+        echo open20\amos\seo\widgets\MetaWidget::widget([
             'form' => \yii\base\Widget::$stack[0],
             'contentModel' => $contentModel,
             'modelClass' => $modelClass,
             'model' => $model,
         ]);
-        echo lispa\amos\seo\widgets\SocialWidget::widget([
+        echo open20\amos\seo\widgets\SocialWidget::widget([
             'form' => \yii\base\Widget::$stack[0],
             'contentModel' => $contentModel,
             'modelClass' => $modelClass,
             'model' => $model,
         ]);
-        echo lispa\amos\seo\widgets\RobotWidget::widget([
+        echo open20\amos\seo\widgets\RobotWidget::widget([
             'form' => \yii\base\Widget::$stack[0],
             'contentModel' => $contentModel,
             'modelClass' => $modelClass,

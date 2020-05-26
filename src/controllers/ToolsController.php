@@ -1,14 +1,23 @@
 <?php
 
+/**
+ * Aria S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    Open20Package
+ * @category   CategoryName
+ */
+
 /*
- * To change this proscription header, choose Proscription Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-namespace lispa\amos\seo\controllers;
+namespace open20\amos\seo\controllers;
 
-use lispa\amos\seo\models\SeoData;
+use open20\amos\seo\models\SeoData;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -16,6 +25,7 @@ use yii\web\Controller;
 /**
  * Tools for SEO
  *
+ * @author matteo
  */
 class ToolsController extends Controller {
 
@@ -47,7 +57,7 @@ class ToolsController extends Controller {
     public function actionIndex() {
 //        $modules = [];
 //        foreach(Yii::$app->getModule('seo')->modulesEnabled as $module){
-//            if (in_array('lispa\\amos\\core\\interfaces\\CmsModuleInterface', class_implements($module))) {
+//            if (in_array('open20\\amos\\core\\interfaces\\CmsModuleInterface', class_implements($module))) {
 //                $modules[] = $module;
 //            }
 //        }
@@ -59,7 +69,7 @@ class ToolsController extends Controller {
     public function actionGenerateMissingPrettyUrls($moduleName) {
         $module = Yii::$app->getModule($moduleName);
         $errorMessage = null;
-        if (in_array('lispa\\amos\\core\\interfaces\\CmsModuleInterface', class_implements($module))) {
+        if (in_array('open20\\amos\\core\\interfaces\\CmsModuleInterface', class_implements($module))) {
             $searchModelClass = $module::getModelSearchClassName();
             $searchModel = new $searchModelClass;
             $dataProvider = $searchModel->cmsSearch([], null);
@@ -81,7 +91,7 @@ class ToolsController extends Controller {
                 }
             }
         } else {
-            $errorMessage = \lispa\amos\seo\AmosSeo::t('amosseo','Modulo non valido');
+            $errorMessage = \open20\amos\seo\AmosSeo::t('amosseo','Modulo non valido');
         }
         
         return $this->render('generateMissingPrettyUrls',[

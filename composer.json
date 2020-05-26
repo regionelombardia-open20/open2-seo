@@ -1,20 +1,20 @@
 {
-    "name": "lispa/amos-seo",
+    "name": "open20/amos-seo",
     "description": "Amos SEO",
     "keywords": [
         "amos",
         "seo"
     ],
-    "homepage": "http://www.lispa.it/",
+    "homepage": "http://www.open20.it/",
     "type": "component",
     "require": {
         "php": ">=5.4.0",
-        "lispa/amos-core" : "*",
+        "open20/amos-core": ">=1.9",
         "simialbi/yii2-schema-org": "*"
     },
     "autoload": {
         "psr-4": {
-            "lispa\\amos\\seo\\": "src"
+            "open20\\amos\\seo\\": "src"
         }
     },
     "fxp-asset": {

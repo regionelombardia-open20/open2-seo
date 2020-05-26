@@ -1,14 +1,23 @@
 <?php
 
+/**
+ * Aria S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    Open20Package
+ * @category   CategoryName
+ */
+
 /* 
- * To change this proscription header, choose Proscription Headers in Project Properties.
+ * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-namespace lispa\amos\seo\controllers;
+namespace open20\amos\seo\controllers;
 
-use lispa\amos\seo\models\SeoData;
+use open20\amos\seo\models\SeoData;
 use Yii;
 
 class ApiController extends \yii\rest\Controller {

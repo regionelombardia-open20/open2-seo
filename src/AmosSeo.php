@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo;
+namespace open20\amos\seo;
 
-use lispa\amos\seo\models\SeoData;
-use lispa\amos\core\module\AmosModule;
-use lispa\amos\core\record\Record;
+use open20\amos\seo\models\SeoData;
+use open20\amos\core\module\AmosModule;
+use open20\amos\core\record\Record;
 
 use yii\helpers\ArrayHelper;
 use Yii;
@@ -23,14 +23,14 @@ use Yii;
  *
  * Collaboration Web House - This module provides management of seo fields
  *
- * @package lispa\amos\seo
+ * @package open20\amos\seo
  * @see
  */
 class AmosSeo extends AmosModule
 {
 
     public $behaviors = [
-        'seoBehavior' => 'lispa\amos\seo\behaviors\SeoBehaviors'
+        'seoBehavior' => 'open20\amos\seo\behaviors\SeoBehaviors'
     ];
     
     public $modulesEnabled = [];
@@ -45,7 +45,7 @@ class AmosSeo extends AmosModule
         $configContents = null;
         parent::init();
 
-        \Yii::setAlias('@lispa/amos/' . static::getModuleName() . '/controllers', __DIR__ . '/controllers');
+        \Yii::setAlias('@open20/amos/' . static::getModuleName() . '/controllers', __DIR__ . '/controllers');
         // \Yii::configure($this, require(__DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php'));
         // 
         // initialize the module with the configuration loaded from config.php
@@ -81,9 +81,9 @@ class AmosSeo extends AmosModule
 
     /**
      *
-     * @return array
+     * @return string
      */
-    public function getModel()
+    public static function getModel()
     {
         return __NAMESPACE__ . '\\' . 'models\SeoData';
     }

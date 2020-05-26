@@ -1,22 +1,22 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\moodle\rules
+ * @package    open20\amos\moodle\rules
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\rules;
+namespace open20\amos\seo\rules;
 
 use Yii;
 use yii\rbac\Rule;
 
 /**
  * Class ShowWidgetIconMoodleRankingRule
- * @package lispa\amos\moodle\rules
+ * @package open20\amos\moodle\rules
  */
 class SeoDataRule extends Rule
 {

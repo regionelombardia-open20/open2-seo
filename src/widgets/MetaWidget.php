@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\widgets;
+namespace open20\amos\seo\widgets;
 
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
-use lispa\amos\seo\AmosSeo;
+use open20\amos\seo\AmosSeo;
 
 
 class MetaWidget extends Widget

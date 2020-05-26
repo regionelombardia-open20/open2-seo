@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\widgets;
+namespace open20\amos\seo\widgets;
 
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
-use lispa\amos\seo\AmosSeo;
+use open20\amos\seo\AmosSeo;
 
 
 class SocialWidget extends Widget
@@ -65,8 +65,8 @@ class SocialWidget extends Widget
     {
         $this->ogTypeList = [
                 'article' => 'article: article on a website', 
-                'book' => 'book: book or pubblication', 
-                'place' => 'place: represents a place - such as a venue, a business, a landmark, or any other location', 
+                'book' => 'book: book or publication', 
+                'place' => 'place: represents a place, such as a venue, a business, a landmark or any other location',
                 'product' => 'product: this includes both virtual and physical products', 
                 'profile' => 'profile: represents a person', 
                 'video.other' => 'video.other: represents a generic video', 

@@ -1,7 +1,16 @@
 <?php
 
-use lispa\amos\core\migration\AmosMigrationPermissions;
-use lispa\amos\seo\rules\SeoDataRule;
+/**
+ * Aria S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    Open20Package
+ * @category   CategoryName
+ */
+
+use open20\amos\core\migration\AmosMigrationPermissions;
+use open20\amos\seo\rules\SeoDataRule;
 use yii\rbac\Permission;
 
 

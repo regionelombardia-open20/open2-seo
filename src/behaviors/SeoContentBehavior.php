@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo\behaviors
+ * @package    open20\amos\seo\behaviors
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\behaviors;
+namespace open20\amos\seo\behaviors;
 
-use lispa\amos\seo\models\SeoData;
+use open20\amos\seo\models\SeoData;
 use Yii;
 use yii\behaviors\AttributeBehavior;
 use yii\helpers\ArrayHelper;
 
 /**
  * Class SeoBehaviors
- * @package lispa\amos\seo\behaviors
+ * @package open20\amos\seo\behaviors
  */
 class SeoContentBehavior extends AttributeBehavior {
 

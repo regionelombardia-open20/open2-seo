@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo
+ * @package    open20\amos\seo
  * @category   CategoryName
  */
-use lispa\amos\seo\AmosSeo;
-use lispa\amos\core\helpers\Html;
+use open20\amos\seo\AmosSeo;
+use open20\amos\core\helpers\Html;
 
 //pr($contentModel->className(), 'contentModel - meta-tag');pr($modelClass, 'model - meta-tag');pr($model->toArray(), 'il model');
 //print 'getPrettyUrl: '.$contentModel->getPrettyUrl().'.<br />';

@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\seo\behaviors
+ * @package    open20\amos\seo\behaviors
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\behaviors;
+namespace open20\amos\seo\behaviors;
 
-use lispa\amos\seo\AmosSeo;
-use lispa\amos\seo\models\SeoData;
+use open20\amos\seo\AmosSeo;
+use open20\amos\seo\models\SeoData;
 
 use Yii;
 use yii\base\Event;
@@ -21,7 +21,7 @@ use yii\behaviors\AttributeBehavior;
 
 /**
  * Class SeoBehaviors
- * @package lispa\amos\seo\behaviors
+ * @package open20\amos\seo\behaviors
  */
 class SeoBehaviors extends AttributeBehavior
 {
@@ -30,7 +30,7 @@ class SeoBehaviors extends AttributeBehavior
 
 
     /**
-     * @var \lispa\amos\core\record\Record $sender ;
+     * @var \open20\amos\core\record\Record $sender ;
      */
     private $sender;
     
@@ -108,7 +108,7 @@ class SeoBehaviors extends AttributeBehavior
     }
     
     /**
-     * @return \lispa\amos\core\record\Record
+     * @return \open20\amos\core\record\Record
      */
     private function getSender()
     {

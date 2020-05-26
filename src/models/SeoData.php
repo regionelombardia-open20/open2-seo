@@ -1,14 +1,24 @@
 <?php
 
-namespace lispa\amos\seo\models;
+/**
+ * Aria S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    Open20Package
+ * @category   CategoryName
+ */
 
-use lispa\amos\core\record\Record;
-use lispa\amos\seo\AmosSeo;
-use lispa\amos\seo\behaviors\SluggableSeoBehavior;
-use lispa\amos\attachments\behaviors\FileBehavior;
+namespace open20\amos\seo\models;
+
+use open20\amos\core\record\Record;
+use open20\amos\seo\AmosSeo;
+use open20\amos\seo\behaviors\SluggableSeoBehavior;
+use open20\amos\attachments\behaviors\FileBehavior;
 
 
 use Yii;
+use yii\base\Exception;
 use yii\helpers\ArrayHelper;
 use yii\base\ErrorException;
 //use yii\behaviors\SluggableBehavior;
@@ -16,7 +26,7 @@ use yii\base\ErrorException;
 /**
 * This is the model class for table "seo_data".
 */
-class SeoData extends \lispa\amos\seo\models\base\SeoData
+class SeoData extends \open20\amos\seo\models\base\SeoData
 {
     /**
      * @var File $ogImage
@@ -54,21 +64,17 @@ class SeoData extends \lispa\amos\seo\models\base\SeoData
         pr($newValues, 'SeoData::aggiornaSeoData - $newValues');exit;
         */
         
-        if ($this->validate()) {
             try {
                 $this->save();
-
             } catch (Exception $e) {
-                throw new ErrorException(AmosSeo::t('amosseo', 'Impossibile salvare i dati seo per il contenuto: {msgError}', [
-                    'msgError' => $e->getMessage()
-                ]));
+                $this->update();
+//                \Yii::$app->session->addFlash('danger',AmosSeo::t('amosseo', 'Impossibile salvare i dati seo per il contenuto'));
+//                throw new ErrorException(AmosSeo::t('amosseo', 'Impossibile salvare i dati seo per il contenuto: {msgError}', [
+//                    'msgError' => $e->getMessage()
+//                ]));
             }
 
-        } else {
-            pr($this->errors, 'Errori di validazione');//exit;
-            pr($this->toArray(), 'Errore di validazione');exit;
-            throw new ErrorException(AmosSeo::t('amosseo', 'Impossibile salvare i dati seo per il contenuto'));
-        }
+
                
     }
     
@@ -83,6 +89,7 @@ class SeoData extends \lispa\amos\seo\models\base\SeoData
     
     
     /**
+     * @see \yii\base\Component::behaviors() for more info.
      */
     public function behaviors()
     {
@@ -140,6 +147,7 @@ class SeoData extends \lispa\amos\seo\models\base\SeoData
     * Returns the text hint for the specified attribute.
     * @param string $attribute the attribute name
     * @return string the attribute hint
+    * @see attributeHints
     */
     public function getAttributeHint($attribute) {
         $hints = $this->attributeHints();

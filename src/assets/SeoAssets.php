@@ -1,28 +1,28 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\moodle\assets
+ * @package    open20\amos\moodle\assets
  * @category   CategoryName
  */
 
-namespace lispa\amos\seo\assets;
+namespace open20\amos\seo\assets;
 
 use yii\web\AssetBundle;
 
 /**
  * Class SeoAsset
- * @package lispa\amos\seo\assets
+ * @package open20\amos\seo\assets
  */
 class SeoAsset extends AssetBundle {
 
     /**
      * @inheritdoc
      */
-    public $sourcePath = '@vendor/lispa/amos-seo/src/assets/web';
+    public $sourcePath = '@vendor/open20/amos-seo/src/assets/web';
     public $publishOptions = [
         'forceCopy' => YII_DEBUG,
     ];
