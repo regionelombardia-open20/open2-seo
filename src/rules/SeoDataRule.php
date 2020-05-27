@@ -11,7 +11,9 @@
 
 namespace open20\amos\seo\rules;
 
+use open20\amos\seo\models\SeoData;
 use Yii;
+use yii\log\Logger;
 use yii\rbac\Rule;
 
 /**
@@ -27,10 +29,10 @@ class SeoDataRule extends Rule
      */
     public function execute($user, $item, $params)
     {
-        //pr($item, 'item');
+        /**
+         * @var $model SeoData
+         */
         $model = $params['model'];
-        //print "id: $model->id; classname: $model->classname; content_id: $model->content_id.<br />";
-        //pr($params, $params['model']->id);
 
         //The base class name
         $baseClassName = \yii\helpers\StringHelper::basename($model->classname);
@@ -56,16 +58,13 @@ class SeoDataRule extends Rule
             default:
                 $modulePremission = null;
         }
-        
-        //print "baseClassName: $baseClassName; modulePremission: $modulePremission; permissionType: $permissionType.<br />";
+
         if (!is_null($modulePremission)) {
-            $retVal = \Yii::$app->user->can($modulePremission, ['model' => $model]);
+            $retVal = \Yii::$app->user->can($modulePremission, ['model' => $model->owner]);
         } else {
             $retVal = false;
         }
-        
-        
-        //print "SeoDataRule: $retVal.<br />"; //exit;
+
         return $retVal;
     }
 }
