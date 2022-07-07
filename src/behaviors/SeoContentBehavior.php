@@ -91,13 +91,13 @@ class SeoContentBehavior extends AttributeBehavior {
 
         $seoData = $this->getContentSeoData();
         if (!is_null($seoData->ogImage)) {
-            $og_image_url = \yii\helpers\Url::base(true).$seoData->ogImage->getWebUrl('square_medium', false, false);
+            $og_image_url = \yii\helpers\Url::base(true).$seoData->ogImage->getWebUrl('social', false, false);
         } else {
             if (is_null($this->imageAttribute)) {
                 return null;
             } else {
                 $contentImage = ArrayHelper::getValue($this->owner, $this->imageAttribute);
-                $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true).$contentImage->getWebUrl('square_medium', false, false) : null;
+                $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true).$contentImage->getWebUrl('social', false, false) : null;
             }
         }
         

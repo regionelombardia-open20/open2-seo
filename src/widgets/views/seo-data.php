@@ -10,6 +10,7 @@
  * @category   CategoryName
  */
 use open20\amos\seo\assets\SeoAsset;
+use open20\amos\seo\AmosSeo;
 
 
 //SeoAsset::register($this);
@@ -20,7 +21,7 @@ use open20\amos\seo\assets\SeoAsset;
 
     <?php //pr($contentModel->className(), 'contentModel - seo-dataaa');pr($modelClass, 'model - seo-data'); pr($model->toArray(), 'il model');exit;
 
-    $moduleSeo  = \Yii::$app->getModule('seo');
+    $moduleSeo  = \Yii::$app->getModule(AmosSeo::getModuleName());
     if (isset($moduleSeo) && $moduleSeo->behaviors) {
         //print 'seo-data: Hello world!';exit;
         echo open20\amos\seo\widgets\MetaWidget::widget([

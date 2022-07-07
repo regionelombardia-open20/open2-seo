@@ -6,8 +6,6 @@ use open20\amos\core\record\Record;
 use open20\amos\seo\AmosSeo;
 use open20\amos\seo\behaviors\SluggableSeoBehavior;
 use open20\amos\attachments\behaviors\FileBehavior;
-
-
 use Yii;
 use yii\base\Exception;
 use yii\db\ActiveRecord;
@@ -31,14 +29,24 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
     {
         //pr($newValues, '$newValues');exit;
         $this->content_id = $model->id;
-        $this->classname = $model->className();
+        $this->classname  = $model->className();
         $this->pretty_url = $newValues['pretty_url'];
-        $this->meta_title = $newValues['meta_title'];
-        $this->meta_description = $newValues['meta_description'];
-        $this->meta_keywords = $newValues['meta_keywords'];
-        $this->og_title = $newValues['og_title'];
-        $this->og_description = $newValues['og_description'];
-        $this->og_type = $newValues['og_type'];
+        try {
+            if (strpos($this->pretty_url, '-') === 0 || empty($this->pretty_url)) {
+                $behavior = $model->getBehavior('SeoContentBehavior');
+                if (!empty($behavior)) {
+                    $this->pretty_url = ArrayHelper::getValue($model, $behavior->titleAttribute);
+                }
+            }
+        } catch (Exception $ex) {
+
+        }
+        $this->meta_title             = $newValues['meta_title'];
+        $this->meta_description       = $newValues['meta_description'];
+        $this->meta_keywords          = $newValues['meta_keywords'];
+        $this->og_title               = $newValues['og_title'];
+        $this->og_description         = $newValues['og_description'];
+        $this->og_type                = $newValues['og_type'];
         $this->unavailable_after_date = $newValues['unavailable_after_date'];
         if (is_array($newValues['meta_robots'])) {
             $this->meta_robots = implode(',', $newValues['meta_robots']);
@@ -54,9 +62,9 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
         $this->pretty_url = $this->generateUniqueSeoSlug($this->pretty_url);
 
         /*
-        pr($model->toArray(), 'SeoData::aggiornaSeoData - model');
-        pr($newValues, 'SeoData::aggiornaSeoData - $newValues');exit;
-        */
+          pr($model->toArray(), 'SeoData::aggiornaSeoData - model');
+          pr($newValues, 'SeoData::aggiornaSeoData - $newValues');exit;
+         */
 
         try {
             $this->save();
@@ -68,24 +76,23 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
 //                ]));
         }
     }
-
-    /***
+    /*     * *
      * splitta meta_robots e meta_googlebot per le checkbox
      */
+
     public function prepareSeoData()
     {
-        $this->meta_robots = explode(',', $this->meta_robots);
+        $this->meta_robots    = explode(',', $this->meta_robots);
         $this->meta_googlebot = explode(',', $this->meta_googlebot);
     }
-
 
     /**
      */
     public function behaviors()
     {
         return ArrayHelper::merge(
-            parent::behaviors(),
-            [
+                parent::behaviors(),
+                [
                 'slug' => [
                     'class' => SluggableSeoBehavior::className(),
                     'attribute' => 'meta_title',
@@ -97,10 +104,9 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
                 'fileBehavior' => [
                     'class' => FileBehavior::className()
                 ],
-            ]
+                ]
         );
     }
-
 
     /**
      * Getter for $this->ogImage;
@@ -121,7 +127,6 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
     {
         $this->ogImage = $image;
     }
-
 
     public function representingColumn()
     {
@@ -150,10 +155,10 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
     public function rules()
     {
         return ArrayHelper::merge(
-            parent::rules(),
-            [
+                parent::rules(),
+                [
                 [['ogImage'], 'file', 'extensions' => 'jpeg, jpg, png, gif'],
-            ]
+                ]
         );
     }
 
@@ -163,11 +168,10 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
             ArrayHelper::merge(
                 parent::attributeLabels(),
                 [
-                    'ogImage' => AmosSeo::t('amosseo', 'Og image')
+                'ogImage' => AmosSeo::t('amosseo', 'Og image')
                 ]
-            );
+        );
     }
-
 
     public static function getEditFields()
     {
@@ -247,8 +251,9 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
      * @throws Exception
      * @throws \yii\base\InvalidConfigException
      */
-    public function getOwner() {
-        if(empty($this->classname)) {
+    public function getOwner()
+    {
+        if (empty($this->classname)) {
             throw new Exception('Undefined Class For Seo Data');
         }
 
@@ -256,7 +261,7 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
 
         $owner = $ownerInstance::findOne($this->content_id);
 
-        if(empty($owner) || empty($owner->id)) {
+        if (empty($owner) || empty($owner->id)) {
             throw new Exception('Owner Not Found');
         }
 

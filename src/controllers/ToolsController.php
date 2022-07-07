@@ -12,6 +12,7 @@ use open20\amos\seo\models\SeoData;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use open20\amos\seo\AmosSeo;
 
 /**
  * Tools for SEO
@@ -52,7 +53,7 @@ class ToolsController extends Controller {
 //            }
 //        }
         return $this->render('index',[
-            'modules' => Yii::$app->getModule('seo')->modulesEnabled
+            'modules' => Yii::$app->getModule(AmosSeo::getModuleName())->modulesEnabled
         ]);
     }
 
