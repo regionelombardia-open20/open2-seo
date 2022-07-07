@@ -53,7 +53,7 @@ class AmosSeo extends AmosModule
 
         $this->modulesEnabled = $this->config['modulesEnabled'];
 
-        Record::$modulesChainBehavior[] = 'seo';
+        Record::$modulesChainBehavior[] = self::$moduleName;
         //pr(Record::$modulesChainBehavior, 'Record::$modulesChainBehavior');exit;
     }
 

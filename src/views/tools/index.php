@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancanti');
+$moduleName = \open20\amos\seo\AmosSeo::getModuleName()
+
 ?>
 <div class="default-index">
     <div class="row">
@@ -13,7 +15,7 @@ $this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancant
             ?>
             <div class="generator col-lg-4">
                 <h3><?= strtoupper($moduleName) ?></h3>
-                <p><?= Html::a('Genera', Url::toRoute(['/seo/tools/generate-missing-pretty-urls', 'moduleName' => $moduleName]), ['class' => 'btn btn-default']) ?></p>
+                <p><?= Html::a('Genera', Url::toRoute(['/'.$moduleName.'/tools/generate-missing-pretty-urls', 'moduleName' => $moduleName]), ['class' => 'btn btn-default']) ?></p>
             </div>
         <?php } ?>
 

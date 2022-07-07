@@ -82,7 +82,7 @@ class SeoContentBehavior extends AttributeBehavior {
     public function getOgTitle() {
 
         $seoData = $this->getContentSeoData();
-        $og_title = ($seoData->og_title) ? $seoData->og_title : $this->getMetaTitle();
+        $og_title = ($seoData->og_title) ? $seoData->meta_title : ArrayHelper::getValue($this->owner, $this->titleAttribute);
 
         return $og_title;
     }

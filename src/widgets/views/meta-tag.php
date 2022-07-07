@@ -16,6 +16,7 @@ use open20\amos\core\helpers\Html;
 //print 'getMetaTitle: '.$contentModel->getMetaTitle().'.<br />';
 //print 'getMetaDescription: '.$contentModel->getMetaDescription().'.<br />';
 //print 'getMetaKeywords: '.$contentModel->getMetaKeywords().'.<br />';
+$moduleName = AmosSeo::getModuleName()
 ?>
 <?php
 $titolo_field = $contentModel->titleAttribute;
@@ -40,7 +41,7 @@ $js = <<<JS
         //console.log('setPrettyUrl', $(titoloElem).val());
         var url = 
                 $.ajax({
-                    url: '/seo/api/prettyurl',
+                    url: '/$moduleName/api/prettyurl',
                     type: 'POST',
                     data: {
                         slug: $(titoloElem).val()

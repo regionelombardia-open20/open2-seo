@@ -27,7 +27,8 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
 
     public function aggiornaSeoData(Record $model, $newValues)
     {
-        //pr($newValues, '$newValues');exit;
+//        pr($newValues, '$newValues');die;
+
         $this->content_id = $model->id;
         $this->classname  = $model->className();
         $this->pretty_url = $newValues['pretty_url'];

@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
-
+$moduleName = \open20\amos\seo\AmosSeo::getModuleName();
 $this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancanti');
 ?>
 <div class="default-index">
@@ -12,7 +12,7 @@ $this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancant
     <?php endif; ?>
 </div>
 
-<?= Html::a('Indietro',Url::toRoute('/seo/tools'),['class' => 'btn btn-default']) ?>
+<?= Html::a('Indietro',Url::toRoute('/'.$moduleName.'/tools'),['class' => 'btn btn-default']) ?>
 
 
 
