@@ -1,14 +1,5 @@
 <?php
 
-/**
- * Aria S.p.A.
- * OPEN 2.0
- *
- *
- * @package    Open20Package
- * @category   CategoryName
- */
-
 namespace open20\amos\seo\models;
 
 use open20\amos\core\record\Record;
@@ -89,7 +80,6 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
 
 
     /**
-     * @see \yii\base\Component::behaviors() for more info.
      */
     public function behaviors()
     {
@@ -150,7 +140,6 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
      * Returns the text hint for the specified attribute.
      * @param string $attribute the attribute name
      * @return string the attribute hint
-     * @see attributeHints
      */
     public function getAttributeHint($attribute)
     {

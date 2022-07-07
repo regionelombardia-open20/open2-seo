@@ -36,7 +36,7 @@ class SluggableSeoBehavior extends SluggableBehavior {
         $text = str_replace("&nbsp;", " ", $text);
         $text = str_replace(array("'", "-"), "", $text); //remove single quote and dash
         $text = mb_convert_case($text, MB_CASE_LOWER, "UTF-8"); //convert to lowercase
-        $text = preg_replace("#[^a-zA-Z]+#", "-", $text); //replace everything non an with dashes
+        $text = preg_replace("#[^a-zA-Z0-9]+#", "-", $text); //replace everything non an with dashes
         $text = preg_replace("#(-){2,}#", "$1", $text); //replace multiple dashes with one
         $text = trim($text, "-"); //trim dashes from beginning and end of string if any
 
