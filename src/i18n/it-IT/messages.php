@@ -12,14 +12,14 @@
 return [
     '#meta_tag_title' => 'Meta tag',
     '#pretty_url_field_placeholder' => 'Inserisci la pretty url',
-    '#pretty_url_field_hint' => 'La pretty url viene proposta automaticamente a partire dal titolo; può essere modificata.',    
+    '#pretty_url_field_hint' => 'La pretty url viene proposta automaticamente a partire dal titolo; può essere modificata.',
     '#meta_title_field_placeholder' => 'Inserisci il meta title',
     '#meta_title_field_hint' => 'Se il campo è lasciato vuoto, viene usato come default il titolo',
     '#meta_description_field_placeholder' => 'Inserisci la meta description',
     '#meta_description_field_hint' => 'Se il campo è lasciato vuoto, viene usato come default l\'abstract',
     '#meta_keywords_field_placeholder' => 'Inserisci la meta description',
     '#meta_keywords_field_hint' => ' ',
-    
+
     '#social_tag_title' => 'Social tag',
     '#og_title_field_placeholder' => 'Inserisci l\'og-title',
     '#og_title_field_hint' => 'Se il campo è lasciato vuoto, viene usato come default il meta title',
@@ -40,5 +40,13 @@ return [
     '#noarchive_desc' => 'noarchive: impedisce la visualizzazione su Google del link Copia cache di una pagina.',
     '#unavailable_after_desc' => 'unavailable_after:[date]: consente di specificare l\'ora e la data esatte in cui interrompere la scansione e l\'indicizzazione della pagina.',
     '#noimageindex_desc' => 'noimageindex: consente di specificare che la pagina non deve essere visualizzata come pagina di referral per un\'immagine presente nei risultati',
-    
+
+    '#analyzer_title' => 'Analisi contenuto',
+    '#analyzer_readability' => 'Leggibilità',
+    '#analyzer_seo' => 'SEO',
+    '#analyzer_no_text' => 'Per iniziare una analisi basata sulla frase chiave e i sinonimi, occorre compilare almeno i campi <strong>titolo</strong> e <strong>testo della notizia</strong> presenti in questo form',
+    '#analyzer_keyphrase' => 'Frase chiave',
+    '#analyzer_synonyms' => 'Sinonimi',
+    '#analyzer_keyphrase_description' => 'Inserisci la frase chiave e i sinonimi per cui vuoi che questo contenuto venga indicizzato dai motori di ricerca. Questo permetterà un’analisi più accurata dei contenuti.'
+
 ];
