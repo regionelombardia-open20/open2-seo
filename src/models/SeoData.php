@@ -174,9 +174,9 @@ class SeoData extends \open20\amos\seo\models\base\SeoData
         );
     }
 
-    public static function getEditFields()
+    public function getEditFields()
     {
-        $labels = self::attributeLabels();
+        $labels = $this->attributeLabels();
 
         return [
             [

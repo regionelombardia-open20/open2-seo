@@ -13,7 +13,3 @@ $this->title = \open20\amos\seo\AmosSeo::t('amosseo', 'Genera Pretty Url mancant
 </div>
 
 <?= Html::a('Indietro',Url::toRoute('/'.$moduleName.'/tools'),['class' => 'btn btn-default']) ?>
-
-
-
-
