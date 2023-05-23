@@ -69,7 +69,7 @@ class SeoContentBehavior extends AttributeBehavior {
         $seoData = $this->getContentSeoData();
         $meta_description = ($seoData->meta_description) ? $seoData->meta_description : ArrayHelper::getValue($this->owner, $this->descriptionAttribute);
 
-        return $meta_description;
+        return strip_tags($meta_description);
     }
 
     public function getMetaKeywords() {
@@ -82,7 +82,7 @@ class SeoContentBehavior extends AttributeBehavior {
     public function getOgTitle() {
 
         $seoData = $this->getContentSeoData();
-        $og_title = ($seoData->og_title) ? $seoData->meta_title : ArrayHelper::getValue($this->owner, $this->titleAttribute);
+        $og_title = ($seoData->og_title) ? $seoData->og_title : ArrayHelper::getValue($this->owner, $this->titleAttribute);
 
         return $og_title;
     }
@@ -91,16 +91,23 @@ class SeoContentBehavior extends AttributeBehavior {
 
         $seoData = $this->getContentSeoData();
         if (!is_null($seoData->ogImage)) {
-            $og_image_url = \yii\helpers\Url::base(true).$seoData->ogImage->getWebUrl('social', false, false);
+            $og_image_url = \yii\helpers\Url::base(true) . $seoData->ogImage->getWebUrl('social', false, false);
         } else {
             if (is_null($this->imageAttribute)) {
                 return null;
             } else {
                 $contentImage = ArrayHelper::getValue($this->owner, $this->imageAttribute);
-                $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true).$contentImage->getWebUrl('social', false, false) : null;
+                try {
+                    if (empty($contentImage)) {
+                        $contentImage = $this->owner->hasOneFile($this->imageAttribute)->one();
+                    }
+                } catch (\Exception $e) {
+                    $contentImage = null;
+                }
+                $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true) . $contentImage->getWebUrl('social', false, false) : null;
             }
         }
-        
+
         return $og_image_url;
     }
 
@@ -109,7 +116,7 @@ class SeoContentBehavior extends AttributeBehavior {
         $seoData = $this->getContentSeoData();
         $og_description = ($seoData->og_description) ? $seoData->og_description : $this->getMetaDescription();
 
-        return $og_description;
+        return strip_tags($og_description);
     }
 
     public function getOgType() {
@@ -125,22 +132,19 @@ class SeoContentBehavior extends AttributeBehavior {
 
         $seoData = $this->getContentSeoData();
         $theDate = $this->getUnavailableAfterDate();
-        $meta_robots = preg_replace('/unavailable_after/', 'unavailable_after: '.$theDate, $seoData->meta_robots);
+        $meta_robots = preg_replace('/unavailable_after/', 'unavailable_after: ' . $theDate, $seoData->meta_robots);
 
         return $meta_robots;
     }
-
 
     public function getMetaGooglebot() {
 
         $seoData = $this->getContentSeoData();
         $theDate = $this->getUnavailableAfterDate();
-        $meta_googlebot = preg_replace('/unavailable_after/', 'unavailable_after: '.$theDate, $seoData->meta_googlebot);
+        $meta_googlebot = preg_replace('/unavailable_after/', 'unavailable_after: ' . $theDate, $seoData->meta_googlebot);
 
         return $meta_googlebot;
-
     }
-
 
     public function getUnavailableAfterDate($formatted = 'RFC-850') {
 

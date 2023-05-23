@@ -66,9 +66,9 @@ class SeoBehaviors extends AttributeBehavior
             $seoData = new SeoData();
         }
         //pr($seoData->toArray(), 'eventSaveSeoData - $seoData');//exit;
-        $pars = Yii::$app->request->post();
+        //$pars = Yii::$app->request->post();
   
-        $post = [];
+        //$post = [];
         
         if (isset($_POST['SeoData'])) {
             $this->postParams = $_POST['SeoData'];

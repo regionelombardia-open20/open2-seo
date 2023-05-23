@@ -39,6 +39,7 @@ class SluggableSeoBehavior extends SluggableBehavior {
         $text = preg_replace("#[^a-zA-Z0-9]+#", "-", $text); //replace everything non an with dashes
         $text = preg_replace("#(-){2,}#", "$1", $text); //replace multiple dashes with one
         $text = trim($text, "-"); //trim dashes from beginning and end of string if any
+        $text = trim($text, '.');
 
         if ($this->maxLengthSlug) {
             $text = substr($text, 0, $this->maxLengthSlug);
