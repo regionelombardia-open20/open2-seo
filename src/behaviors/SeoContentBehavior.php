@@ -90,6 +90,7 @@ class SeoContentBehavior extends AttributeBehavior {
     public function getOgImageUrl() {
 
         $seoData = $this->getContentSeoData();
+        $og_image_url = '';
         if (!is_null($seoData->ogImage)) {
             $og_image_url = \yii\helpers\Url::base(true) . $seoData->ogImage->getWebUrl('social', false, false);
         } else {
@@ -104,7 +105,9 @@ class SeoContentBehavior extends AttributeBehavior {
                 } catch (\Exception $e) {
                     $contentImage = null;
                 }
-                $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true) . $contentImage->getWebUrl('social', false, false) : null;
+                if($contentImage && !is_array($contentImage)) {
+                    $og_image_url = (!is_null($contentImage)) ? \yii\helpers\Url::base(true) . $contentImage->getWebUrl('social', false, false) : null;
+                }
             }
         }
 
